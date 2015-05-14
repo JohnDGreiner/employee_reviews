@@ -60,4 +60,14 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal 100000, department.salary_total
   end
 
+  def test_add_review_to_employee
+    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    assert employee_one.add_review("Zeke is a very positive person and encourages those around him,
+    but he has not done well technically this year.  There are two areas in which Zeke has room
+    for improvement.  First, when communicating verbally (and sometimes in writing), he has a
+    tendency to use more words than are required.  This conversational style does put people at
+    ease, which is valuable, but it often makes the meaning difficult to isolate, and can cause
+    confusion.")
+  end
+
 end

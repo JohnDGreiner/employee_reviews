@@ -6,6 +6,11 @@ class Employee
     @email = email
     @phone = phone
     @salary = salary
+    @review = []
+  end
+
+  def add_review(review)
+    @review = review
   end
 
 end
