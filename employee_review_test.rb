@@ -20,48 +20,47 @@ class EmployeeReviewTest < Minitest::Test
   def test_create_employee
     department = Department.new("Development")
 
-    Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
   end
 
   def test_get_employee_name
     department = Department.new("Development")
-    employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
     assert_equal "Dutch Matrix", employee.name
   end
 
   def test_get_employee_email
     department = Department.new("Development")
-    employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee = Employee.new(email: "Commando@example.com", phone: "919-877-1276", salary: 90000, name: "Dutch Matrix")
 
     assert_equal "Commando@example.com", employee.email
   end
 
   def test_get_employee_phone
     department = Department.new("Development")
-    employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
-
+    employee = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
     assert_equal "919-877-1276", employee.phone
   end
 
   def test_get_employee_salary
     department = Department.new("Development")
-    employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
     assert_equal 90000, employee.salary
   end
 
   def test_add_employee_to_department
     department = Department.new("Development")
-    employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
     assert department.add_employee(employee)
   end
 
   def test_total_salaries_of_a_department
     department = Department.new("Development")
-    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
-    employee_two = Employee.new("John Rambo","Rambo@example.com","919-999-1276", 10000)
+    employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
+    employee_two = Employee.new(name: "John Rambo", email: "Rambo@example.com", phone: "919-999-1276", salary: 10000)
 
     assert department.add_employee(employee_one)
     assert department.add_employee(employee_two)
@@ -69,7 +68,7 @@ class EmployeeReviewTest < Minitest::Test
   end
 
   def test_add_review_to_employee
-    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
     assert employee_one.add_review("Zeke is a very positive person and encourages those around him,
     but he has not done well technically this year.  There are two areas in which Zeke has room
@@ -80,15 +79,15 @@ class EmployeeReviewTest < Minitest::Test
   end
 
   def test_add_performance_rating
-    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
-    assert employee_one.add_rating("positive")
+    assert employee_one.add_rating(rating: "positive")
   end
 
   def test_employee_can_get_raise
-    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
-    assert employee_one.give_raise(10000.95)
+    assert employee_one.give_raise(amount: 10000.95)
     assert_equal 100000.95, employee_one.salary
   end
 
