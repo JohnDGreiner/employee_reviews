@@ -91,4 +91,25 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal 100000.95, employee_one.salary
   end
 
+  # def test_giving_department_a_raise
+  #   development = Department.new("Development")
+  #   sales = Department.new("sales")
+  #   employee_one = Employee.new(name: "Clark Kent", email: "superman@example.com", phone: "111-111-1111", salary: 90000)
+  #   employee_two = Employee.new(name: "Barry Allen", email: "flash@example.com", phone: "222-222-2222", salary: 50000)
+  #   employee_three = Employee.new(name: "Oliver Queen", email: "green@example.com", phone: "333-333-3333", salary: 70000)
+  #   employee_sales = Employee.new(name: "Tony Stark", email: "ironman@example.com", phone: "444-444-4444", salary: 100000)
+  #
+  #   assert development.add_employee(employee_one)
+  #   assert development.add_employee(employee_two)
+  #   assert development.add_employee(employee_three)
+  #   assert development.add_employee(employee_sales)
+  #   assert development.give_raise(amount: 10000)
+  #   assert sales.give_raise(amount: 50000)
+  #   assert_equal
+  #   assert_equal
+  #   assert_equal
+  #   assert_equal
+  #
+  # end
+
 end
