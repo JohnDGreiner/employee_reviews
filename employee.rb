@@ -17,4 +17,7 @@ class Employee
     @rating = rating
   end
 
+  def give_raise(raise_amount)
+    @salary += raise_amount 
+  end
 end
