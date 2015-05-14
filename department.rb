@@ -10,8 +10,10 @@ class Department
     @employees << employee
   end
 
-  # def salary_total
-  #   @department{|d| d.salary}
-  # end
+  def salary_total
+    s_total = 0
+    @employees.each {|e| s_total += e.salary}
+    s_total
+  end
 
 end

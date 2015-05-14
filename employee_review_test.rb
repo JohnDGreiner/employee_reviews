@@ -51,10 +51,13 @@ class EmployeeReviewTest < Minitest::Test
     assert department.add_employee(employee)
   end
 
-  # def test_total_salaries_of_a_department
-  #   department = Department.new("Development")
-  #   employee = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000, department)
-  #   assert_equal 100000, department.salary_total
-  # end
+  def test_total_salaries_of_a_department
+    department = Department.new("Development")
+    employee_one = Employee.new("Dutch Matrix","Commando@example.com","919-877-1276", 90000)
+    employee_two = Employee.new("John Rambo","Rambo@example.com","919-999-1276", 10000)
+    assert department.add_employee(employee_one)
+    assert department.add_employee(employee_two)
+    assert_equal 100000, department.salary_total
+  end
 
 end
