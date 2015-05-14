@@ -13,4 +13,8 @@ class Employee
     @review = review
   end
 
+  def add_rating(rating)
+    @rating = rating
+  end
+
 end
