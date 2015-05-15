@@ -12,8 +12,13 @@ class Department
 
   def salary_total
     s_total = 0
-    @employees.each {|e| s_total += e.salary}
+    @employees.map {|e| s_total += e.salary}
     s_total
+  end
+
+  def give_raise(amount)
+    need_raise = @employees.select { |e| e if e.rating == true}
+    need_raise.each { |e| e.give_raise(amount/need_raise.length)}
   end
 
 end

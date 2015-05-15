@@ -13,15 +13,11 @@ class Employee
     @review << review
   end
 
-  def add_rating(rating:)
-    if rating == true
-      @rating = "Satisfactory"
-    else
-      @rating = "Unsatisfactory"
-    end
+  def add_rating(rating)
+      @rating = rating
   end
 
-  def give_raise(amount:)
+  def give_raise(amount)
     @salary += amount
   end
 end
