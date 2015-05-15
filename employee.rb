@@ -1,5 +1,5 @@
 class Employee
-  attr_reader :name, :email, :phone, :salary
+  attr_reader :name, :email, :phone, :salary, :rating
 
   def initialize(name:, email:, phone:, salary:)
     @name = name
@@ -14,7 +14,11 @@ class Employee
   end
 
   def add_rating(rating:)
-    @rating = rating
+    if rating == true
+      @rating = "Satisfactory"
+    else
+      @rating = "Unsatisfactory"
+    end
   end
 
   def give_raise(amount:)

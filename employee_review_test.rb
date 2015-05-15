@@ -81,7 +81,8 @@ class EmployeeReviewTest < Minitest::Test
   def test_add_performance_rating
     employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
-    assert employee_one.add_rating(rating: "positive")
+    assert employee_one.add_rating(rating: true)
+    assert_equal "Satisfactory", employee_one.rating
   end
 
   def test_employee_can_get_raise
