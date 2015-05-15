@@ -17,7 +17,7 @@ class Department
   end
 
   def give_raise(amount)
-    need_raise = @employees.select { |e| e if e.rating == true}
+    need_raise = @employees.select { |e| yield(e)}
     need_raise.each { |e| e.give_raise(amount/need_raise.length)}
   end
 

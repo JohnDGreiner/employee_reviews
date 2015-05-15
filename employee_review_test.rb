@@ -108,8 +108,8 @@ class EmployeeReviewTest < Minitest::Test
     assert development.add_employee(employee_two)
     assert development.add_employee(employee_three)
     assert sales.add_employee(employee_sales)
-    assert development.give_raise(10000)
-    assert sales.give_raise(50000)
+    assert development.give_raise(10000) {|e| e.rating == true}
+    assert sales.give_raise(50000) {|e| e.rating == true}
     assert_equal 95000.00, employee_one.salary
     assert_equal 55000.00, employee_two.salary
     assert_equal 70000.00, employee_three.salary
