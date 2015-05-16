@@ -78,11 +78,11 @@ class EmployeeReviewTest < Minitest::Test
     confusion.")
   end
 
-  def test_add_performance_rating
+  def test_add_satisfactory_boolean
     employee_one = Employee.new(name: "Dutch Matrix", email: "Commando@example.com", phone: "919-877-1276", salary: 90000)
 
-    assert employee_one.add_rating(true)
-    assert_equal true, employee_one.rating
+    assert employee_one.satisfactory?(true)
+    assert_equal true, employee_one.satisfactory
   end
 
   def test_employee_can_get_raise
@@ -99,22 +99,24 @@ class EmployeeReviewTest < Minitest::Test
     employee_two = Employee.new(name: "Barry Allen", email: "flash@example.com", phone: "222-222-2222", salary: 50000)
     employee_three = Employee.new(name: "Oliver Queen", email: "green@example.com", phone: "333-333-3333", salary: 10000)
     employee_sales = Employee.new(name: "Tony Stark", email: "ironman@example.com", phone: "444-444-4444", salary: 100000)
-    employee_one.add_rating(true)
-    employee_two.add_rating(true)
-    employee_three.add_rating(false)
-    employee_sales.add_rating(true)
+    employee_one.satisfactory?(true)
+    employee_two.satisfactory?(true)
+    employee_three.satisfactory?(false)
+    employee_sales.satisfactory?(true)
 
     assert development.add_employee(employee_one)
     assert development.add_employee(employee_two)
     assert development.add_employee(employee_three)
     assert sales.add_employee(employee_sales)
     assert development.give_raise(10000) {|e| e.salary > 10000}
-    assert sales.give_raise(50000) {|e| e.rating == true}
+    assert sales.give_raise(50000) {|e| e.satisfactory == true}
     assert_equal 95000.00, employee_one.salary
     assert_equal 55000.00, employee_two.salary
     assert_equal 10000.00, employee_three.salary
     assert_equal 150000.00, employee_sales.salary
 
   end
+
+
 
 end
